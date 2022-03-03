@@ -4,7 +4,6 @@ const {v4: uuidv4} = require('uuid');
 const s3 = new aws.S3({ apiVersion: '2006-03-01' });
 
 var crypto = require('crypto');
-var aws = require('aws-sdk');
 var dynamodb = new aws.DynamoDB({apiVersion: '2012-08-10'});
 var TABLE_NAME = process.env.TABLE_NAME;
 
