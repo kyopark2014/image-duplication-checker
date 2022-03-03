@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/kyopark2014/image-duplication-checker/issues"
   },
-  "homepage": "https://github.com/kyopark2014/image-duplication-checker#readme"
+  "homepage": "https://github.com/kyopark2014/image-duplication-checker#readme",
+  "dependencies": {
+    "content-disposition": "^0.5.4",
+    "uuid": "^8.3.2"
+  }
 }
