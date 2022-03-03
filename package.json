@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/kyopark2014/image-duplication-checker#readme",
   "dependencies": {
+    "blockhash-core": "^0.1.0",
     "content-disposition": "^0.5.4",
     "uuid": "^8.3.2"
   }
