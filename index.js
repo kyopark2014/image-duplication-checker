@@ -107,3 +107,10 @@ async function putItem(key, text) {
     }
   }
   
+  function createReseponse(code, data) {
+    return {
+      statusCode: code,
+      headers: {'Content-Type': 'text/plain; charset=utf-8'},
+      body: JSON.stringify({ "data": data })
+    };
+  }
