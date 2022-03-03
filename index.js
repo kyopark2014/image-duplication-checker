@@ -1,8 +1,12 @@
 const aws = require('aws-sdk');
 const cd = require('content-disposition');
 const {v4: uuidv4} = require('uuid');
-
 const s3 = new aws.S3({ apiVersion: '2006-03-01' });
+
+var crypto = require('crypto');
+var aws = require('aws-sdk');
+var dynamodb = new aws.DynamoDB({apiVersion: '2012-08-10'});
+var TABLE_NAME = process.env.TABLE_NAME;
 
 exports.handler = async (event, context) => {
     console.log('## ENVIRONMENT VARIABLES: ' + JSON.stringify(process.env))
@@ -70,3 +74,37 @@ exports.handler = async (event, context) => {
     };
     return response;
 };
+
+async function putItem(key, text) {
+    let item = {
+      "pid": {"S": key},
+      "text": {"S": text}
+    };
+    try {
+      let result = await dynamodb.putItem({
+        "TableName": TABLE_NAME,
+        "Item" : item
+      }).promise();
+      console.log('result', result);
+      return createReseponse(200, key);
+    } catch (err) {
+      return createReseponse(500, `Failed to put item ${err}`);
+    }
+  }
+  
+  async function getItem(pid) {
+    console.log('pid', pid);
+    try {
+      let result = await dynamodb.getItem({
+        "TableName": TABLE_NAME,
+        "Key" : {
+            "pid": {"S": pid }
+        }
+      }).promise();
+      console.log('result', result);
+      return createReseponse(200, result.Item.text.S);
+    } catch (err) {
+      return createReseponse(500, `Failed to get item ${err}`);
+    }
+  }
+  
