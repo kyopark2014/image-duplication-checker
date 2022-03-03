@@ -52,23 +52,20 @@ https://ap-northeast-2.console.aws.amazon.com/apigateway/main/apis?region=ap-nor
 ![image](https://user-images.githubusercontent.com/52392004/156531850-c20751df-ded0-4679-9ed4-f73229f52d7c.png)
 
 
-8) / - POST - Setup 화면이 나타납니다. [Ingegration type] 은 Lambda Function 을 선택하고 [Lambda Region] 은 ap-northeast-2 를 선택합니다. [Lambda Function] 에는 미리 만든 "lambda-simple-filestore-upload"를 선택합니다. [Save] 를 선택하여 API 메소드 생성을 완료합니다.
+8) / - POST - Setup 화면이 나타납니다. [Ingegration type] 은 Lambda Function 을 선택하고 [Lambda Region] 은 ap-northeast-2 를 선택합니다. [Lambda Function] 에는 미리 만든 "lambda-duplication-checker"를 선택합니다. [Save] 를 선택하여 API 메소드 생성을 완료합니다.
 
-![apigw-9](https://user-images.githubusercontent.com/52392004/156360883-d26e92ee-de2c-42ff-a4b2-d16443ee0a53.png)
-
+![image](https://user-images.githubusercontent.com/52392004/156532645-e656634b-34ed-40b4-8e29-014a4a872422.png)
 
 9) 아래와 같이 Add Permission to Lambda Function 팝업이 나타나면 [OK] 를 선택합니다.
 
-![apigw-10](https://user-images.githubusercontent.com/52392004/156360931-dca24093-e227-47ef-8865-be159d9cb6ee.png)
-
+![image](https://user-images.githubusercontent.com/52392004/156532868-033add1d-e754-4b4e-9386-5e46980fca53.png)
 
 이후 아래와 같이 생성된 API 를 확인 할 수 있습니다.
 
-![apigw-11](https://user-images.githubusercontent.com/52392004/156360970-a48185aa-6f55-4622-9188-b78d860d8f10.png)
+![image](https://user-images.githubusercontent.com/52392004/156532947-1eb66596-127c-4d3c-94fa-c14d6af8ee67.png)
 
 
-
-10) Binary contents 처리를 위해 [API-filestore] - [Resources] - [upload - POST]에서 [Integration Request]를 선택합니다. 이후 아래로 스크롤하여 [Mapping Templates]을 설정합니다.
+10) Binary contents 처리를 위해 [API-duplication-checker] - [Resources] - [upload - POST]에서 [Integration Request]를 선택합니다. 이후 아래로 스크롤하여 [Mapping Templates]을 설정합니다.
 
 1. “Request body passthrough”에서 “When there are no templates defined (recommended)”를 선택
 
@@ -92,7 +89,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Comm
 11) 생성한 API 를 배포해줘야 합니다. [Resources] 메뉴 상단의 [Actions] 버튼을 드롭다운 한 뒤 [Deploy API] 를 클릭합니다.
 
 
-![apigw-14](https://user-images.githubusercontent.com/52392004/156361071-e7771509-3fe0-4348-974a-a742676ebf4e.png)
+![image](https://user-images.githubusercontent.com/52392004/156533397-851b7a01-7ba6-4e7a-8e30-d504f73ef102.png)
 
 
 12) [Deploy stage] 는 [New Stage] 를 선택하고 [Stage name*] 에는 dev 를 입력한 뒤 [Deploy] 버튼을 클릭합니다.
@@ -100,18 +97,14 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Comm
 13) 아래와 같이 [Stages] - [dev]를 선택한후, invoke URL을 확인합니다.
 
 ```c
-https://ds1y3ss8wg.execute-api.ap-northeast-2.amazonaws.com/dev
+https://oc9e2sdzsg.execute-api.ap-northeast-2.amazonaws.com/dev
 
 ````
 
-![apigw-15](https://user-images.githubusercontent.com/52392004/156361107-49724049-c050-4618-9631-705e41c1e8e1.png)
-
-
+![image](https://user-images.githubusercontent.com/52392004/156533558-094ce9de-7236-4eb4-b461-75b9c5cfcac2.png)
 
 14) 아래와 같이 [Logs/Tracing]의 [CloudWatch Settings]에서 [Enable CloudWatch Logs], [Log full requests/responses date], [Enable Detailed CloudWatch Metrics]를 모두 enable 하고 [Log level]을 “INFO”로 설정합니다.
 
-![apigw-16](https://user-images.githubusercontent.com/52392004/156361136-39d893f8-f091-45e9-8e50-7ea97107b416.png)
-
-
+![image](https://user-images.githubusercontent.com/52392004/156533668-1f0a6c7c-f145-4fae-b93f-2191b4b472ab.png)
 
 
