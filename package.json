@@ -17,8 +17,14 @@
   },
   "homepage": "https://github.com/kyopark2014/image-duplication-checker#readme",
   "dependencies": {
+    "@canvas/image": "^1.0.1",
+    "blockhash": "^0.2.0",
     "blockhash-core": "^0.1.0",
     "content-disposition": "^0.5.4",
+    "crypto": "^1.0.1",
     "uuid": "^8.3.2"
+  },
+  "directories": {
+    "doc": "docs"
   }
 }
