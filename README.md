@@ -20,3 +20,15 @@
 
 6) 입력된 이미지가 증복이 아니라면, UUID, Content-ID를 Redis와 DynamoDB에 저장하고, 컨텐츠는 S3에 저장합니다. 
 
+### Lambda for Duplication Checker
+
+https://github.com/kyopark2014/image-duplication-checker/blob/main/docs/lambda-duplication-checker.md
+
+### API Gateway
+
+https://github.com/kyopark2014/image-duplication-checker/blob/main/docs/api-gateway.md
+
+### S3
+
+https://github.com/kyopark2014/image-duplication-checker/blob/main/docs/s3.md
+
