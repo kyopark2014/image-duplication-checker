@@ -50,7 +50,8 @@ https://ap-northeast-2.console.aws.amazon.com/apigateway/main/apis?region=ap-nor
 
 생성된 빈 드롭 다운 메뉴에서는 [POST] 을 선택한 뒤 체크 버튼을 클릭합니다.
 
-![apigw-8](https://user-images.githubusercontent.com/52392004/156360836-c9daa3b5-45ec-46b6-a91e-de627033168a.png)
+![image](https://user-images.githubusercontent.com/52392004/156531709-3d175cd2-d685-4138-93ad-b5a91a25d0c1.png)
+
 
 
 
