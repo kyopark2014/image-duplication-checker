@@ -39,20 +39,17 @@ https://ap-northeast-2.console.aws.amazon.com/apigateway/main/apis?region=ap-nor
 
 6) [New Child Resource]에서 [Resource Name]을 "upload"로 입력하고 [Create Resource]를 선택합니다.
 
-<img width="972" alt="apigw-6" src="https://user-images.githubusercontent.com/52392004/156360750-dc5053e7-5f54-445a-88fa-c65c11630504.png">
+![image](https://user-images.githubusercontent.com/52392004/156531177-ac823a75-1c5e-485a-ae00-4858cc6a9dd6.png)
 
 
 
 7) API 생성이 완료되면 [Resources] 메뉴 상단의 [Actions] 버튼을 드롭 다운 한 뒤 [Create Method] 옵션을 선택합니다.
 
-![image](https://user-images.githubusercontent.com/52392004/156531177-ac823a75-1c5e-485a-ae00-4858cc6a9dd6.png)
-
+![image](https://user-images.githubusercontent.com/52392004/156531709-3d175cd2-d685-4138-93ad-b5a91a25d0c1.png)
 
 생성된 빈 드롭 다운 메뉴에서는 [POST] 을 선택한 뒤 체크 버튼을 클릭합니다.
 
-![image](https://user-images.githubusercontent.com/52392004/156531709-3d175cd2-d685-4138-93ad-b5a91a25d0c1.png)
-
-
+![image](https://user-images.githubusercontent.com/52392004/156531850-c20751df-ded0-4679-9ed4-f73229f52d7c.png)
 
 
 8) / - POST - Setup 화면이 나타납니다. [Ingegration type] 은 Lambda Function 을 선택하고 [Lambda Region] 은 ap-northeast-2 를 선택합니다. [Lambda Function] 에는 미리 만든 "lambda-simple-filestore-upload"를 선택합니다. [Save] 를 선택하여 API 메소드 생성을 완료합니다.
