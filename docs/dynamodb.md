@@ -1,5 +1,7 @@
 # DynamoDB
 
+### DynamoDB Table 생성
+
 1) AWS 콘솔 에서 Amazon DynamoDB 서비스로 이동합니다.
 
 https://ap-northeast-2.console.aws.amazon.com/dynamodbv2/home?region=ap-northeast-2#service
