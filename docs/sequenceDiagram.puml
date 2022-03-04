@@ -12,9 +12,6 @@ skinparam stereotypeEBackgroundColor White
 skinparam stereotypeABackgroundColor White
 skinparam linetype ortho
 
-!define AWSPuml https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/master/dist
-!includeurl AWSPuml/Storage/SimpleStorageServiceS3.puml
-
 actor user
 
 box "Image Duplication Checker"
