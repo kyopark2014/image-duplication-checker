@@ -10,7 +10,7 @@ https://ap-northeast-2.console.aws.amazon.com/dynamodbv2/home?region=ap-northeas
 
 ![image](https://user-images.githubusercontent.com/52392004/156787178-eb380f17-800b-43f3-84d4-1b8469245ae2.png)
 
-생성된 dyanmo table의 정보는 아래와 같다. 
+생성된 dyanmo table의 정보는 아래와 같습니다. Partition Key와 Sort Key가 string 타입으로 설정되었습니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/156787695-1074062c-8b30-424b-9533-14c83592e027.png)
 
