@@ -20,4 +20,14 @@ https://ap-northeast-2.console.aws.amazon.com/dynamodbv2/home?region=ap-northeas
 
 ![image](https://user-images.githubusercontent.com/52392004/156795261-3adf533f-7b4c-4d5f-994c-5143cebfc7a6.png)
 
+아래와 같이 Global secondary index로 "ContentID"를 입력하고 아래로 스크롤하여 [Create Index]를 선택합니다. 
+![image](https://user-images.githubusercontent.com/52392004/156796028-50ef2254-ea33-4759-9ba6-a7c243cd4246.png)
 
+
+4) billing 방식을 On-demand로 바꾸기 위하여, 아래와 같이 [Actions]에서 [Edit capacity]를 선택합니다.
+
+![image](https://user-images.githubusercontent.com/52392004/156797590-a2f4d225-8869-42e3-84bc-831f47b8159f.png)
+
+[On-demand]를 선택합니다.
+
+![image](https://user-images.githubusercontent.com/52392004/156796028-50ef2254-ea33-4759-9ba6-a7c243cd4246.png)
