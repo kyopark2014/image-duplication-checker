@@ -40,7 +40,7 @@ dynamoDB -> lambda -- : 200OK (empty)
 
 lambda -> s3 ++: putObject
 s3 -> lambda --:
-
+ 
 lambda -> lambda : generate UUID
 
 lambda -> redis ++ : putCache ContentID, UUID
