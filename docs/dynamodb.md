@@ -16,4 +16,8 @@ https://ap-northeast-2.console.aws.amazon.com/dynamodbv2/home?region=ap-northeas
 
 ![image](https://user-images.githubusercontent.com/52392004/156787695-1074062c-8b30-424b-9533-14c83592e027.png)
 
+3) Secondary indexes를 설정하기 위해서, [DynamoDB] - [Tables] - [dynamodb-image-duplication-checker]의 [Indexes]에서 [Create index]를 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/156795261-3adf533f-7b4c-4d5f-994c-5143cebfc7a6.png)
+
 
