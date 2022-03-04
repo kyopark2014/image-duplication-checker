@@ -20,6 +20,10 @@
 
 6) 입력된 이미지가 증복이 아니라면, UUID, Content-ID를 Redis와 DynamoDB에 저장하고, 컨텐츠는 S3에 저장합니다. 
 
+상세 시나리오는 아래 sequeance diagram을 참조하시기 바랍니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/156688110-02d91ee1-77e8-40df-b25c-46925f53eaf6.png)
+
 ### Lambda for Duplication Checker
 
 https://github.com/kyopark2014/image-duplication-checker/blob/main/docs/lambda-duplication-checker.md
