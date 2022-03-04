@@ -28,6 +28,6 @@ https://ap-northeast-2.console.aws.amazon.com/dynamodbv2/home?region=ap-northeas
 
 ![image](https://user-images.githubusercontent.com/52392004/156797590-a2f4d225-8869-42e3-84bc-831f47b8159f.png)
 
-[On-demand]를 선택합니다.
+Capacity mode를 [On-demand]로 선택후, [Save changes]를 선택하여 변경합니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/156796028-50ef2254-ea33-4759-9ba6-a7c243cd4246.png)
+![image](https://user-images.githubusercontent.com/52392004/156798089-884a17bc-5cec-49c1-8649-5e8616083bc4.png)
