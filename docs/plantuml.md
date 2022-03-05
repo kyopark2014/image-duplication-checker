@@ -68,14 +68,13 @@ api -> user: 200OK (UUID)
 
 ![image](https://user-images.githubusercontent.com/52392004/156871212-7c8afc29-65ec-49ff-bc39-2802a1d903ef.png)
 
+## AWS Symbol 확인
+
+https://github.com/awslabs/aws-icons-for-plantuml/blob/master/AWSSymbols.md
+
 
 ## TroubleShooting
 아래와 같이 java runtime 오류가 발생하면, https://java.com/en/download/apple.jsp 를 방문하여 Java for Mac을 설치 합니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/156681250-bf2abee3-a502-43d4-9396-6d117369207c.png)
-
-
-## AWS Symbol 확인
-
-https://github.com/awslabs/aws-icons-for-plantuml/blob/master/AWSSymbols.md
 
