@@ -41,3 +41,9 @@ https://github.com/kyopark2014/image-duplication-checker/blob/main/docs/api-gate
 
 https://github.com/kyopark2014/image-duplication-checker/blob/main/docs/s3.md
 
+### DynamoDB
+
+https://github.com/kyopark2014/image-duplication-checker/blob/main/docs/dynamodb.md
+
+### Plant UML
+https://github.com/kyopark2014/image-duplication-checker/blob/main/docs/plantuml.md
