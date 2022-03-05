@@ -1,4 +1,4 @@
-# image-duplication-checker
+# ㅑmage Duplication Checker
 
 본 문서를 통해서, 수신된 이미지가 중복인지 확인하고 결과를 Cache와 Database로 관리하는 프로세스를 설명하고자 합니다. 이를 통해 AWS Severless Service인 Lambda, ElastiCache, DynamoDB, S3 사용법을 이해할 수 있습니다. 
 
@@ -28,6 +28,90 @@
 <!-- ![image](https://user-images.githubusercontent.com/52392004/156688110-02d91ee1-77e8-40df-b25c-46925f53eaf6.png) -->
 
 ![image](https://user-images.githubusercontent.com/52392004/156871212-7c8afc29-65ec-49ff-bc39-2802a1d903ef.png)
+
+
+
+#### Hash 
+
+이미지를 SHA265으로 Hashing해서 unique한 ID인 fingerprint를 생성합니다. 
+
+```java
+    console.log('### start hashing');
+    let fingerprint = "";
+    try {
+      const hashSum = crypto.createHash('sha256');    
+      hashSum.update(body);      
+      fingerprint = hashSum.digest('hex');
+      
+      console.log('### finish hashing: fingerprint = '+fingerprint);
+    } catch(error) {
+      console.log(error);
+      return;
+    }
+````
+
+#### Check Duplication
+
+이미지가 중복되었는지 확인하기 위하여 DynamoDB에 저장된 ContentID를 query 합니다. 중복되었다면 dynamoQuery에 컨텐츠에 대한 정보가 포함됩니다. 
+
+```java
+    var dynamo = new aws.DynamoDB.DocumentClient();
+    var queryParams = {
+      TableName: tableName,
+      IndexName: indexName,    
+      KeyConditionExpression: "ContentID = :content_id",
+      ExpressionAttributeValues: {
+          ":content_id": fingerprint
+      }
+    };
+
+    var dynamoQuery; 
+    try {
+      dynamoQuery = await dynamo.query(queryParams).promise();
+
+      console.log('query: '+JSON.stringify(dynamoQuery));
+    } catch (error) {
+      console.log(error);
+      return;
+    } 
+```    
+
+
+#### Put Item
+
+DynamoDB에 저장되는 Item은 partition key로 uuid를 short key로 timestamp를 쓰고, global secondary index로 hash ID인 ContentID 사용합니다.
+
+각 item의 info는 파일이름, Rekognition 결과 데이터인 json, json에서 text extraction 과정을 통해 얻어진 text와 Polly에 의해 추출된 mp3 파일이 저장된 url로 구성됩니다. 
+
+```java
+      var date = new Date();        
+      var timestamp = Math.floor(date.getTime()/1000).toString();
+
+      var putParams = {
+        TableName: tableName,
+        Item: {
+          uuid: uuid,
+          timestamp: timestamp,
+          ContentID: fingerprint,
+          "info":{
+            "filename": filename,
+            "json": "",
+            "text": "",
+            "url": ""
+          }
+        } 
+      };
+
+      var dynomoPut; 
+      try {
+        dynomoPut = await dynamo.put(putParams).promise();
+
+        console.log('put: '+JSON.stringify(dynomoPut));
+      } catch (error) {
+        console.log(error);
+        return;
+      } 
+```
 
 ### Lambda for Duplication Checker
 
