@@ -1,4 +1,4 @@
-# ㅑmage Duplication Checker
+# Image Duplication Checker
 
 본 문서를 통해서, 수신된 이미지가 중복인지 확인하고 결과를 Cache와 Database로 관리하는 프로세스를 설명하고자 합니다. 이를 통해 AWS Severless Service인 Lambda, ElastiCache, DynamoDB, S3 사용법을 이해할 수 있습니다. 
 
