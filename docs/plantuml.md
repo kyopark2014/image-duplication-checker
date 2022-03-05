@@ -15,6 +15,60 @@ sequanceDiagram.puml 파일을 생성합니다.
 ![image](https://user-images.githubusercontent.com/52392004/156681010-6bd3b473-5daa-4dba-a91a-41df440d0640.png)
 
 
+### Example: sequance.puml
+```java
+@startuml Sequence Diagram - Sprites
+
+!define AWSPuml https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/master/dist
+!includeurl AWSPuml/AWSCommon.puml
+!includeurl AWSPuml/Compute/all.puml
+!includeurl AWSPuml/Mobile/APIGateway.puml
+!includeurl AWSPuml/General/InternetGateway.puml
+!includeurl AWSPuml/Database/DynamoDB.puml
+!includeurl AWSPuml/Database/ElastiCache.puml
+!includeurl AWSPuml/Storage/SimpleStorageServiceS3.puml
+
+skinparam participant {
+    BackgroundColor AWS_BG_COLOR
+    BorderColor AWS_BORDER_COLOR
+}
+
+hide footbox
+
+actor User as user
+participant "<color:#red><$APIGateway>\nAmazon API Gateway" as api
+participant "<color:#D86613><$Lambda></color>\nAmazon Lambda" as lambda
+participant "<color:#3B48CC><$DynamoDB></color>\nAmazon DynamoDB" as dynamoDB
+participant "<color:#green><$SimpleStorageServiceS3></color>\nAmazon S3" as s3
+
+user -> api: Upload Image\nPOST /upload
+
+api -> lambda ++: Invokes lambda
+
+lambda -> lambda: Hash image to make ContentID
+
+lambda -> dynamoDB ++ : query ContentID
+dynamoDB -> lambda -- : 200OK (empty)
+
+lambda -> s3 ++: putObject
+s3 -> lambda --:
+ 
+lambda -> lambda : generate UUID
+
+lambda -> dynamoDB ++ : putItem ContentID, UUID
+dynamoDB -> lambda -- :
+
+lambda -> api --: 200OK (UUID)
+api -> user: 200OK (UUID)
+
+@enduml
+```
+
+### Result
+
+![image](https://user-images.githubusercontent.com/52392004/156871212-7c8afc29-65ec-49ff-bc39-2802a1d903ef.png)
+
+
 ## TroubleShooting
 아래와 같이 java runtime 오류가 발생하면, https://java.com/en/download/apple.jsp 를 방문하여 Java for Mac을 설치 합니다. 
 
