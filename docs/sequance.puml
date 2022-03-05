@@ -35,7 +35,7 @@ lambda -> lambda: Hash image to make ContentID
 lambda -> redis ++ : getCache ContentID
 redis -> lambda -- : 200OK (empty)
 
-lambda -> dynamoDB ++ : getItem ContentID
+lambda -> dynamoDB ++ : query ContentID
 dynamoDB -> lambda -- : 200OK (empty)
 
 lambda -> s3 ++: putObject
