@@ -1,4 +1,4 @@
-# Plantuml
+# Plant UML
 
 Visual Studio Code에서 plantuml을 사용하는것을 가이드하고자 합니다. 
 
