@@ -4,7 +4,9 @@
 
 전체적인 Architecture는 아래와 같습니다. 
 
-<img width="598" alt="image" src="https://user-images.githubusercontent.com/52392004/156489406-0f3fbf15-9183-4a2b-a73f-badbb609414f.png">
+<!-- <img width="598" alt="image" src="https://user-images.githubusercontent.com/52392004/156489406-0f3fbf15-9183-4a2b-a73f-badbb609414f.png"> -->
+
+<img width="503" alt="image" src="https://user-images.githubusercontent.com/52392004/156871322-6db2822c-1b21-4094-8c1d-1d584f7d0ae7.png">
 
 ## 상세 시나리오
 
