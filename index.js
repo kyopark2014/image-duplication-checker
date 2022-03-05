@@ -148,9 +148,12 @@ exports.handler = async (event, context) => {
       console.log('filename: '+filename);
 
       // for test
-    /*  var getParams = {
+      var getParams = {
         TableName: tableName,
-        Key: {uuid: uuid}
+        Key: {
+          uuid: uuid,
+          timestamp: timestamp
+        }
       };
 
       var dynomoGet; 
@@ -161,7 +164,7 @@ exports.handler = async (event, context) => {
       } catch (error) {
         console.log(error);
         return;
-      }  */
+      }  
     } 
      
     const fileInfo = {
