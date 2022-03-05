@@ -14,7 +14,8 @@
 
 3) 입력된 이미지를 hashing하여 이미지에 대한 Content-Id를 생성합니다. 
 
-4) AWS Redis를 통해 중복 여부를 Cache에서 먼저 확인하고, 없다면 AWS DynamoDB에서도 추가적으로 조회를 합니다. 
+<!-- 4) AWS Redis를 통해 중복 여부를 Cache에서 먼저 확인하고, 없다면 AWS DynamoDB에서도 추가적으로 조회를 합니다. -->
+4) AWS DynamoDB를 통해 중복 여부를 확인합니다.
 
 5) 입력된 이미지가 중복이라면 해당 이미지의 UUID를 리턴합니다.
 
@@ -22,7 +23,9 @@
 
 상세 시나리오는 아래 sequeance diagram을 참조하시기 바랍니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/156688110-02d91ee1-77e8-40df-b25c-46925f53eaf6.png)
+<!-- ![image](https://user-images.githubusercontent.com/52392004/156688110-02d91ee1-77e8-40df-b25c-46925f53eaf6.png) -->
+
+![image](https://user-images.githubusercontent.com/52392004/156871212-7c8afc29-65ec-49ff-bc39-2802a1d903ef.png)
 
 ### Lambda for Duplication Checker
 

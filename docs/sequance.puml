@@ -9,8 +9,6 @@
 !includeurl AWSPuml/Database/ElastiCache.puml
 !includeurl AWSPuml/Storage/SimpleStorageServiceS3.puml
 
-
-
 'Comment out to use default PlantUML sequence formatting
 skinparam participant {
     BackgroundColor AWS_BG_COLOR
@@ -22,18 +20,18 @@ hide footbox
 actor User as user
 participant "<color:#red><$APIGateway>\nAmazon API Gateway" as api
 participant "<color:#D86613><$Lambda></color>\nAmazon Lambda" as lambda
-participant "<color:#3B48CC><$ElastiCache></color>\nAmazon ElastiCache" as redis
+'participant "<color:#3B48CC><$ElastiCache></color>\nAmazon ElastiCache" as redis
 participant "<color:#3B48CC><$DynamoDB></color>\nAmazon DynamoDB" as dynamoDB
 participant "<color:#green><$SimpleStorageServiceS3></color>\nAmazon S3" as s3
 
 user -> api: Upload Image\nPOST /upload
 
-api -> lambda: Invokes lambda
+api -> lambda ++: Invokes lambda
 
 lambda -> lambda: Hash image to make ContentID
 
-lambda -> redis ++ : getCache ContentID
-redis -> lambda -- : 200OK (empty)
+'lambda -> redis ++ : getCache ContentID
+'redis -> lambda -- : 200OK (empty)
 
 lambda -> dynamoDB ++ : query ContentID
 dynamoDB -> lambda -- : 200OK (empty)
@@ -43,13 +41,13 @@ s3 -> lambda --:
  
 lambda -> lambda : generate UUID
 
-lambda -> redis ++ : putCache ContentID, UUID
-redis -> lambda -- :
+'lambda -> redis ++ : putCache ContentID, UUID
+'redis -> lambda -- :
 
 lambda -> dynamoDB ++ : putItem ContentID, UUID
 dynamoDB -> lambda -- :
 
-lambda -> api: 200OK (UUID)
+lambda -> api --: 200OK (UUID)
 api -> user: 200OK (UUID)
 
 @enduml
